@@ -60,7 +60,7 @@ Contributions are welcome! To collaborate:
 6. **Open a Pull Request**
 
 ## 📬 Contact
-If you have any questions or suggestions, feel free to reach out.<br>
+If you have any questions or suggestions, feel free to reach out.
 Ig: pinedah_11
 ---
 🚀 **Happy coding and web development!**
