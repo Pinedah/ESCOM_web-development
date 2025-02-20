@@ -34,14 +34,14 @@ To follow the course, make sure you have:
 ## 📂 Repository Structure
 ```
 📦 WebApplicationDevelopment
- ┣ 📂 data           # Notes and slides
- ┣ 📂 resources        # Practices and assignments
- ┣ 📂 period1         # Final projects and case studies
- ┣ 📂 period2         # Final projects and case studies
- ┣ 📂 period3         # Final projects and case studies
- ┣ 📂 projects         # Final projects and case studies
- ┣ 📜 README.md        # This file
- ┣ 📜 temario        # This file
+ ┣ 📂 data                                            # Datasets & databases
+ ┣ 📂 resources                                       # Multimedia resources
+ ┣ 📂 period1                                         # Homework and exercises from Period 1
+ ┣ 📂 period2                                         # Homework and exercises from Period 2
+ ┣ 📂 period3                                         # Homework and exercises from Period 3
+ ┣ 📂 projects                                        # Final projects and case studies
+ ┣ 📜 README.md                                       # This file
+ ┣ 📜 desarrolloAplicacionesWeb_LCD2020.pdf           # Course overview
 ```
 
 ## 📚 Recommended Bibliography
