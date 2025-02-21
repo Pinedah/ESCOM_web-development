@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Edad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="big-container">
+        <div class="container">
+            <h2>¿Eres mayor de edad?</h2>
+            <input type="text" id="nombre" placeholder="Escribe aqui tu nombre">
+            <input type="number" id="edad" placeholder="Ingresa tu edad">
+            <button onclick="verificarEdad()">Verificar</button>
+            <p id="resultado"></p>
+        </div>
+        
+        <div class="container">
+            <h2>Verificar edad con INE</h2>
+            <input type="file" id="inputImagen" accept="image/jpeg, image/png" />
+            <p id="resultado-ine"></p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
