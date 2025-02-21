@@ -12,7 +12,7 @@ body {
     height: 100vh;
     background-color: #111;
 }
-.container {
+.form-container {
     background: #222;
     padding: 20px;
     border-radius: 2px;
