@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejemplo HTML</title>
+    <style>
+        body {
+            font-family: 'Calisto MT', sans-serif;
+            font-size: 20px;
+            background-color: gray;
+        }
+        table {
+            width: 50%; 
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 3px solid black;
+            padding: 8px;
+            text-align: left;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>etiqueta h1</h1>    
+    
+    <h2>Intro</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo sint, modi quod molestias tempora ratione et reiciendis consequatur soluta rerum maiores ipsum id. Blanditiis at repellendus doloribus nemo hic quasi!</p>
+
+    <h3>Lista de tecnologias web</h3>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>js</li>
+    </ul>
+
+    <a href="https://www.wikipedia.org" target="_blank">
+        <h4>para mas información visita a:</h4>
+    </a>
+
+    <h4>ejemplo de imagen</h4>
+    <img src="../img/Citlaltzin_002.jpeg" alt="perro pelon" width="200px">
+
+    <h5>ejemplo de tabla</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Lenguaje</th>
+                <th>Uso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>estructura web</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>Diseño y estilos</td>
+            </tr>
+            <tr>
+                <td>JS</td>
+                <td>backend de la pagina</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>Formulario de contacto</h5>
+    <form action="#" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <label for="email">Correo:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea name="mensaje" id="mensaje" rows=4 cols=30 required>text</textarea>
+        <br><br>
+
+        <input type="submit" value="enviar">
+
+    </form>
+
+    <br>
+    
+    <marquee behavior="alternate" direction="left">
+        <img src="../img/Citlaltzin_003.jpeg" alt="citlaltzin 03" width="400px">
+    </marquee>
+
+</body>
+</html>
