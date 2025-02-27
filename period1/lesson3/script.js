@@ -30,6 +30,8 @@ function main() {
     f.imprimir_form();
 }
 
+/*
+
 function lanzar_formulario(){
     console.log("FORMULARIO DE REGISTRO");
     let nombre_completo = leer_nombre();
@@ -60,3 +62,5 @@ function leer_domicilio(){
     let domicilio = prompt("Ingrese tu domicilio:");
     return domicilio;
 }
+
+*/
