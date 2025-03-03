@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
 // Crear un nuevo usuario
 router.post('/', async (req, res) => {
     try{
+        console.log(req);
         const usuario = await Usuario.create(req.body);
         res.status(201).json(usuario);
     }catch(error){
