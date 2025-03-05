@@ -33,9 +33,9 @@ router.post('/', async (req, res) => {
 });
 
 // Actualizar un usuario
-router.put('/:id', async (req, res) => {
+router.put('/:boleta', async (req, res) => {
     try {
-        await Usuario.update(req.body, { where: { id: req.params.id } });
+        await Usuario.update(req.body, { where: { boleta: req.params.boleta } });
         res.json({ mensaje: 'Usuario actualizado' });
     } catch (error) {
         res.status(400).json({ error: error.message });
