@@ -29,10 +29,16 @@ router.put('/:id', async (req, res) => {
 });
 
 // Eliminar un usuario
-router.delete('/:id', async (req, res) => {
+router.delete('/:boleta', async (req, res) => {
     try {
-        await Usuario.destroy({ where: { id: req.params.id } });
-        res.json({ mensaje: 'Usuario eliminado' });
+        const boleta = req.params.boleta;
+        const usuario = await Usuario.findOne({ where: { boleta } });
+        if (usuario) {
+            await Usuario.destroy({ where: { boleta } });
+            res.json({ mensaje: 'Usuario eliminado con éxito' });
+        } else {
+            res.status(404).json({ error: 'Usuario no encontrado' });
+        }
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

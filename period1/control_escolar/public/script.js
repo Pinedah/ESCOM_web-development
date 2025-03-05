@@ -109,23 +109,28 @@ function update(){
     });
 }
 
-function deleteUser(){
-    const id = document.getElementById('id').value;
+function deleteUser() {
+    const boleta = document.getElementById('boleta').value;
     const resultado = document.getElementById('resultado');
 
-    if (!id) {
-        resultado.innerText = 'El campo ID es obligatorio.';
+    if (!boleta) {
+        resultado.innerText = 'El campo boleta es obligatorio.';
         resultado.style.color = 'red';
         return;
     }
 
-    fetch(`/usuarios/${id}`, {
+    fetch(`/usuarios/${boleta}`, {
         method: 'DELETE'
     })
     .then(response => response.json())
     .then(data => {
-        resultado.innerText = 'Usuario eliminado con éxito';
-        resultado.style.color = 'green';
+        if (data.error) {
+            resultado.innerText = 'Error al eliminar usuario: ' + data.error;
+            resultado.style.color = 'red';
+        } else {
+            resultado.innerText = 'Usuario eliminado con éxito';
+            resultado.style.color = 'green';
+        }
     })
     .catch(error => {
         resultado.innerText = 'Error al eliminar usuario.';
