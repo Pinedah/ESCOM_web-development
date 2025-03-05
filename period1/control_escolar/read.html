@@ -3,17 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de alumnos</title>
+    <title>Buscar Usuarios</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="main-container">
         <div class="form-container">
-            <h2>Consultar un alumno</h2>
-            <input type="number" id="boleta" placeholder="Ingresa la boleta del alumno">
+            <h2>Buscar Usuarios por Boleta</h2>
+            <input type="number" id="boleta" placeholder="Ingresa la boleta">
+            <button onclick="searchUser()">Buscar</button>
             <p id="resultado"></p>
-            <br>
-            <button onclick="read()">Consultar</button>
+        </div>
+        <div class="table-container">
+            <table id="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Boleta</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Domicilio</th>
+                    <th>Nombre de usuario</th>
+                    <th>Genero</th>
+                </tr>
+            </table>
         </div>
     </div>
     <script src="/script.js"></script>

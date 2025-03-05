@@ -12,14 +12,14 @@ body {
     height: 100vh;
     background-color: #111;
 }
-.form-container {
+.form-container, .table-container {
     background: #222;
     padding: 20px;
     border-radius: 2px;
     border: solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 500px;
+    width: auto;
 
     display: flex;
     flex-direction: column;
@@ -46,4 +46,32 @@ button:hover {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    color: white;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #333;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #444;
+}
+
+table tr:hover {
+    background-color: #555;
 }

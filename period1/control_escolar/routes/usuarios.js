@@ -8,6 +8,20 @@ router.get('/', async (req, res) => {
     res.json(usuarios);
 });
 
+router.get('/:boleta', async (req, res) => {
+    try {
+        const boleta = req.params.boleta;
+        const usuario = await Usuario.findOne({ where: { boleta } });
+        if (usuario) {
+            res.json(usuario);
+        } else {
+            res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
 // Crear un nuevo usuario
 router.post('/', async (req, res) => {
     try {

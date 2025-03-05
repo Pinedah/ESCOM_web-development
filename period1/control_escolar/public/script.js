@@ -36,41 +36,70 @@ function main() {
     });
 }
 
-function read(){
-    fetch('/usuarios')
-    .then(response => response.json())
-    .then(data => {
-        let table = document.getElementById('table');
-        table.innerHTML = `
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Boleta</th>
-                <th>Correo</th>
-                <th>Telefono</th>
-                <th>Domicilio</th>
-                <th>Nombre de usuario</th>
-                <th>Genero</th>
-            </tr>
-        `;
-        data.forEach(usuario => {
-            table.innerHTML += `
-                <tr>
-                    <td>${usuario.nombre}</td>
-                    <td>${usuario.apellido}</td>
-                    <td>${usuario.edad}</td>
-                    <td>${usuario.boleta}</td>
-                    <td>${usuario.correo}</td>
-                    <td>${usuario.phone}</td>
-                    <td>${usuario.domicilio}</td>
-                    <td>${usuario.nombre_usuario}</td>
-                    <td>${usuario.genero}</td>
-                </tr>
-            `;
+function searchUser() {
+    const boleta = document.getElementById('boleta').value;
+    const resultado = document.getElementById('resultado');
+    const table = document.getElementById('table');
+
+    if (!boleta) {
+        resultado.innerText = 'El campo boleta es obligatorio.';
+        resultado.style.color = 'red';
+        return;
+    }
+
+    fetch(`/usuarios/${boleta}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                resultado.innerText = 'Usuario no encontrado: ' + data.error;
+                resultado.style.color = 'red';
+                table.innerHTML = `
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Boleta</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Domicilio</th>
+                        <th>Nombre de usuario</th>
+                        <th>Genero</th>
+                    </tr>
+                `;
+            } else {
+                resultado.innerText = 'Usuario encontrado';
+                resultado.style.color = 'green';
+                table.innerHTML = `
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Boleta</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Domicilio</th>
+                        <th>Nombre de usuario</th>
+                        <th>Genero</th>
+                    </tr>
+                    <tr>
+                        <td>${data.nombre}</td>
+                        <td>${data.apellido}</td>
+                        <td>${data.edad}</td>
+                        <td>${data.boleta}</td>
+                        <td>${data.correo}</td>
+                        <td>${data.phone}</td>
+                        <td>${data.domicilio}</td>
+                        <td>${data.nombre_usuario}</td>
+                        <td>${data.genero}</td>
+                    </tr>
+                `;
+            }
+        })
+        .catch(error => {
+            resultado.innerText = 'Error al buscar usuario.';
+            resultado.style.color = 'red';
+            console.error('Error:', error);
         });
-    })
-    .catch(error => console.error('Error:', error));
 }
 
 function update(){
