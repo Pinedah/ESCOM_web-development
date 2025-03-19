@@ -33,6 +33,20 @@ Usuario.hasMany(Tarea, { foreignKey: 'usuarioId' });
 Tarea.belongsTo(Usuario, { foreignKey: 'usuarioId' });
 
 // Rutas
+// Ruta para registrar un nuevo usuario
+app.post('/register', async (req, res) => {
+    const { nombre, email, password, rol } = req.body;
+
+    try {
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        const usuario = await Usuario.create({ nombre, email, password: hashedPassword, rol });
+        res.status(201).json({ mensaje: "Usuario registrado exitosamente", usuario });
+    } catch (error) {
+        res.status(400).json({ mensaje: "Error al registrar usuario", error });
+    }
+});
+
+// Ruta para iniciar sesión
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const usuario = await Usuario.findOne({ where: { email } });
@@ -45,6 +59,7 @@ app.post('/login', async (req, res) => {
     res.json({ token });
 });
 
+// Middleware para verificar el token
 function verificarToken(req, res, next) {
     const token = req.header('Authorization');
     if (!token) return res.status(401).json({ mensaje: "Acceso denegado" });
@@ -58,24 +73,50 @@ function verificarToken(req, res, next) {
     }
 }
 
+// Ruta para obtener las tareas
 app.get('/tareas', verificarToken, async (req, res) => {
     const { rol, id } = req.usuario;
 
-    if (rol === 'admin') {
-        const tareas = await Tarea.findAll();
-        return res.json(tareas);
-    }
+    try {
+        if (rol === 'admin') {
+            const tareas = await Tarea.findAll();
+            return res.json(tareas);
+        }
 
-    const tareas = await Tarea.findAll({ where: { usuarioId: id } });
-    res.json(tareas);
+        const tareas = await Tarea.findAll({ where: { usuarioId: id } });
+        res.json(tareas);
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al obtener tareas", error });
+    }
 });
 
+// Ruta para agregar una nueva tarea
 app.post('/tareas', verificarToken, async (req, res) => {
     const { descripcion } = req.body;
     const { id } = req.usuario;
 
-    const tarea = await Tarea.create({ descripcion, usuarioId: id });
-    res.json(tarea);
+    try {
+        const tarea = await Tarea.create({ descripcion, usuarioId: id });
+        res.status(201).json(tarea);
+    } catch (error) {
+        res.status(400).json({ mensaje: "Error al crear tarea", error });
+    }
+});
+
+// Ruta para marcar una tarea como completada
+app.put('/tareas/:id', verificarToken, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const tarea = await Tarea.findByPk(id);
+        if (!tarea) return res.status(404).json({ mensaje: "Tarea no encontrada" });
+
+        tarea.completada = true;
+        await tarea.save();
+        res.json({ mensaje: "Tarea completada", tarea });
+    } catch (error) {
+        res.status(400).json({ mensaje: "Error al completar tarea", error });
+    }
 });
 
 // Sincronizar base de datos y arrancar el servidor

@@ -1,0 +1,23 @@
+-- Crear la base de datos
+CREATE DATABASE todolist;
+
+-- Usar la base de datos
+USE todolist;
+
+-- Crear la tabla Usuario
+CREATE TABLE Usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    rol ENUM('usuario', 'admin') NOT NULL DEFAULT 'usuario'
+);
+
+-- Crear la tabla Tarea
+CREATE TABLE Tarea (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL,
+    completada BOOLEAN DEFAULT FALSE,
+    usuarioId INT NOT NULL,
+    FOREIGN KEY (usuarioId) REFERENCES Usuario(id) ON DELETE CASCADE
+);
