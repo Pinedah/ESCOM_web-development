@@ -20,3 +20,5 @@ test('Debe sumar 2 + 2 y dar 4', () => {
   expect(sumar(2, 2)).toBe(4);
 });
 
+// comando para probarlo en la terminal: 
+// npx jest 
