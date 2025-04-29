@@ -1,0 +1,75 @@
+body.light-mode{
+    background-color: white;
+    color: black;
+}
+body.light-mode{
+    background-color: #333;
+    color: white;
+}
+nav a:hover{
+    color: orange
+}
+
+body{
+    color: black;
+}
+
+button {
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;    
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+button:hover{
+    transform: scale(1.05);
+}
+
+header {
+    padding: 1rem;
+    text-align: center;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre las imágenes (opcional) */
+    flex-wrap: wrap; /* Por si quieres que se acomoden en varias filas si son muchas imágenes */
+}
+
+.galeria img {
+    max-width: 40%;
+    height: auto;
+}
+
+img{
+    height: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+img:hover{
+    transform: scale(1.05);
+    cursor: grab;
+}
+#descripcion {
+    margin: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.tema-oscuro {
+    background-color: #222;
+    color: #eee;
+}
+
+.tema-oscuro #descripcion {
+    background-color: #444;
+    color: #eee;
+}

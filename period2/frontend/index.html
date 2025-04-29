@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Paisajes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Galería de Xolitos</h1>
+        <button onclick="cambiarTema()">Cambiar Tema</button>
+    </header>
+    
+    <main>
+        <section class="galeria">
+            <img src="img/img1.jpeg" alt="Paisaje 1" onclick="mostrarDescripcion('Paisaje 1')">
+            <img src="img/img2.jpeg" alt="Paisaje 2" onclick="mostrarDescripcion('Paisaje 2')">
+        </section>
+        
+        <div id="descripcion"></div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Xolitos</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
