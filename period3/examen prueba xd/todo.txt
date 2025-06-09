@@ -1,0 +1,33 @@
+Ejercicio "mini crm de contactos inteligente"
+
+Objetivo: 
+
+Contruir una aplicación SPA con React que permite visualizar una lista de contactos, filtrar por nombre y cargar detalles de cada contacto on deman (con lazy loading). Los datos se obtienen mediante fetch desde una API simulada.
+
+Tecnologias y temas incluidos:
+
+- SPA (Single Page Application)
+- Componentes con props y memo
+- Lazy Loading y Suspense
+- Fetch API
+- Estilos responsivos (CSS Grid)
+- Optimización de performance
+- Interactividad (Busqueda en tiempo real)
+
+Caracteristicas requeridas:
+
+- App.jsx: Componente principal con buscador de contactos
+- ListaDeContactos.jsx: Componente hijo cargado con Lazy que muestra los contactos
+- DetalleContacto.jsx: Se carga solo cuando el usuario da clic en un contacto
+- El layout es responsivo usando CSS Grid
+- El buscador filtra sin recargar la página
+- Se usa memo para evitar renders innecesarios
+
+Requisitos
+
+- Impletar el filtro de busqueda con useState
+- Cargar detalles con Lazy cuando seleccionen un contacto
+- Aplicar CSS Grid para la disposición de tarjetas
+- Usar memo para evitar renderizados innecesarios
+- Agregar estilos con :hover y media queries
+
