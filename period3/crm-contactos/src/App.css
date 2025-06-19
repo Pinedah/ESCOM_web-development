@@ -1,96 +1,112 @@
+/* Reset básico para que todos los elementos empiecen desde cero */
+/* Es como limpiar la pizarra antes de empezar a dibujar */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Hace que padding y border se incluyan en el ancho total */
 }
 
+/* Estilos base para todo el documento */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
+  background-color: #f5f7fa; /* Fondo gris muy claro, relajante para la vista */
+  color: #333; /* Texto oscuro para buen contraste */
+  line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
 }
 
+/* Contenedor principal de toda la aplicación */
 .app {
-  min-height: 100vh;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla como mínimo */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Header arriba, main abajo */
 }
 
+/* Header con gradiente llamativo y centrado */
 .app-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente morado-azul */
   color: white;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
 }
 
 .app-header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 700; /* Título bien grueso y llamativo */
 }
 
+/* Contenedor del buscador */
 .search-container {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrado horizontal */
 }
 
+/* Estilo del input de búsqueda con efectos modernos */
 .search-input {
   width: 100%;
   padding: 1rem;
   font-size: 1.1rem;
   border: none;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50px; /* Forma redondeada moderna */
+  background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Transiciones suaves para interacciones */
 }
 
+/* Efectos cuando el usuario hace foco en el buscador */
 .search-input:focus {
-  outline: none;
-  background: white;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  outline: none; /* Quitamos el borde azul por defecto del navegador */
+  background: white; /* Fondo completamente blanco al enfocar */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Pequeño movimiento hacia arriba */
 }
 
+/* Área principal de contenido */
 .app-main {
-  flex: 1;
+  flex: 1; /* Ocupa todo el espacio disponible */
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px; /* Ancho máximo para no verse extraño en pantallas muy grandes */
+  margin: 0 auto; /* Centrado horizontal */
   width: 100%;
 }
 
+/* Título de la sección de contactos */
 .contacts-container h2 {
   margin-bottom: 1.5rem;
   color: #444;
   font-size: 1.8rem;
 }
 
+/* AQUÍ ESTÁ LA MAGIA: CSS Grid para las tarjetas de contactos */
+/* auto-fill hace que se creen tantas columnas como quepan */
+/* minmax(300px, 1fr) significa "mínimo 300px de ancho, máximo el espacio disponible" */
 .contacts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 1.5rem; /* Espacio entre tarjetas */
   margin-bottom: 2rem;
 }
 
+/* Estilo de cada tarjeta de contacto */
 .contact-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 12px; /* Esquinas redondeadas suaves */
   padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Sombra muy sutil */
+  cursor: pointer; /* Muestra que es clickeable */
+  transition: all 0.3s ease; /* Transiciones suaves para efectos hover */
+  border: 2px solid transparent; /* Borde invisible que se mostrará al hacer hover */
 }
 
+/* Efectos cuando pasas el mouse sobre una tarjeta */
 .contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-color: #667eea;
+  transform: translateY(-5px); /* Se eleva un poco */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más dramática */
+  border-color: #667eea; /* Borde de color que aparece */
 }
 
+/* Contenedor del avatar en cada tarjeta */
 .contact-avatar {
   text-align: center;
   margin-bottom: 1rem;
@@ -99,10 +115,11 @@ body {
 .contact-avatar img {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  border: 3px solid #e9ecef;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  border: 3px solid #e9ecef; /* Borde gris claro alrededor */
 }
 
+/* Información de texto en cada tarjeta */
 .contact-info h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
@@ -110,11 +127,12 @@ body {
 }
 
 .contact-info p {
-  color: #666;
+  color: #666; /* Texto secundario más claro */
   margin-bottom: 0.3rem;
   font-size: 0.95rem;
 }
 
+/* Indicadores de estado de carga */
 .loading {
   text-align: center;
   padding: 3rem;
@@ -122,72 +140,79 @@ body {
   color: #666;
 }
 
+/* Mensaje cuando no hay resultados de búsqueda */
 .no-results {
   text-align: center;
   padding: 3rem;
   color: #666;
-  font-style: italic;
+  font-style: italic; /* Texto en cursiva para darle un toque especial */
 }
 
-/* Detail Modal Styles */
+/* === ESTILOS DEL MODAL DE DETALLES === */
+
+/* Overlay que cubre toda la pantalla */
 .detail-overlay {
-  position: fixed;
+  position: fixed; /* Se queda fijo aunque hagas scroll */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  z-index: 1000; /* Se asegura de estar por encima de todo */
   padding: 1rem;
 }
 
+/* La ventana modal en sí */
 .detail-modal {
   background: white;
-  border-radius: 16px;
+  border-radius: 16px; /* Esquinas muy redondeadas para look moderno */
   max-width: 600px;
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-height: 90vh; /* No más del 90% de la altura de pantalla */
+  overflow-y: auto; /* Scroll si el contenido es muy largo */
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); /* Sombra dramática */
 }
 
+/* Botón X para cerrar el modal */
 .close-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
   background: #f8f9fa;
   border: none;
-  border-radius: 50%;
+  border-radius: 50%; /* Botón circular */
   width: 40px;
   height: 40px;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 1001;
+  z-index: 1001; /* Por encima del modal */
 }
 
 .close-btn:hover {
   background: #e9ecef;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Se agranda un poco al hacer hover */
 }
 
+/* Header del modal con el mismo gradiente que el header principal */
 .detail-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 2rem;
   text-align: center;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px 16px 0 0; /* Solo esquinas superiores redondeadas */
 }
 
+/* Avatar más grande en el modal */
 .detail-avatar img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 4px solid white; /* Borde blanco para contraste */
   margin-bottom: 1rem;
 }
 
@@ -196,21 +221,24 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Texto descriptivo con diferente opacidad para jerarquía visual */
 .position {
   font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 0.9; /* Ligeramente transparente */
   margin-bottom: 0.3rem;
 }
 
 .company {
   font-size: 1rem;
-  opacity: 0.8;
+  opacity: 0.8; /* Más transparente que el puesto */
 }
 
+/* Contenido principal del modal */
 .detail-content {
   padding: 2rem;
 }
 
+/* Cada sección de información en el modal */
 .detail-section {
   margin-bottom: 2rem;
 }
@@ -219,10 +247,11 @@ body {
   color: #333;
   margin-bottom: 1rem;
   font-size: 1.3rem;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid #e9ecef; /* Línea divisoria */
   padding-bottom: 0.5rem;
 }
 
+/* Cada fila de información (etiqueta: valor) */
 .detail-row {
   display: flex;
   margin-bottom: 0.8rem;
@@ -230,29 +259,32 @@ body {
 }
 
 .label {
-  font-weight: 600;
+  font-weight: 600; /* Etiquetas en negritas */
   color: #555;
-  min-width: 120px;
+  min-width: 120px; /* Ancho mínimo para alineación */
 }
 
 .value {
   color: #333;
 }
 
-/* Media Queries */
+/* === RESPONSIVE DESIGN: Adaptación a diferentes tamaños de pantalla === */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 768px) {
   .app-header {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem; /* Menos padding en móvil */
   }
 
   .app-header h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Título más pequeño */
   }
 
   .app-main {
     padding: 1rem;
   }
 
+  /* En tablets, las tarjetas ocupan todo el ancho */
   .contacts-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -262,6 +294,7 @@ body {
     padding: 1rem;
   }
 
+  /* Modal ajustado para tablet */
   .detail-modal {
     margin: 1rem;
     max-height: 95vh;
@@ -275,6 +308,7 @@ body {
     padding: 1.5rem;
   }
 
+  /* En tablet, las filas de información se apilan verticalmente */
   .detail-row {
     flex-direction: column;
     align-items: flex-start;
@@ -286,9 +320,10 @@ body {
   }
 }
 
+/* Móviles pequeños */
 @media (max-width: 480px) {
   .app-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Título aún más pequeño */
   }
 
   .search-input {
@@ -296,6 +331,7 @@ body {
     padding: 0.8rem;
   }
 
+  /* En móvil, definitivamente una sola columna */
   .contacts-grid {
     grid-template-columns: 1fr;
   }
@@ -304,6 +340,7 @@ body {
     padding: 1rem;
   }
 
+  /* Avatares más pequeños en móvil */
   .contact-avatar img {
     width: 60px;
     height: 60px;
